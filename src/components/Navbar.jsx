@@ -79,6 +79,14 @@ const Navbar = () => {
     setMenuOpen(false);
   };
 
+  const handleMobileNavClick = (e, to) => {
+    e.preventDefault();
+    setMenuOpen(false);
+    setTimeout(() => {
+      smoothScrollTo(to);
+    }, 250);
+  };
+
   return (
     <motion.nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -192,7 +200,7 @@ const Navbar = () => {
                 <a
                   key={link.to}
                   href={`#${link.to}`}
-                  onClick={() => setMenuOpen(false)}
+                  onClick={(e) => handleMobileNavClick(e, link.to)}
                   className={`block w-full text-left cursor-pointer px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200 focus:outline-none ${
                     activeSection === link.to
                       ? 'text-accent bg-accent/5 border border-accent/20'
