@@ -260,3 +260,28 @@ h1, h2, h3, h4, h5, h6 {
 @media (max-width: 640px) {
   .section-padding { padding: 4rem 0; }
 }
+
+/* ─── Theme Toggle View Transition ─── */
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 0.8s;
+}
+
+::view-transition-old(root) {
+  z-index: 1;
+  animation: none;
+}
+
+::view-transition-new(root) {
+  z-index: 2;
+  animation: theme-wipe 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+@keyframes theme-wipe {
+  0% {
+    clip-path: circle(0% at 95% 5%);
+  }
+  100% {
+    clip-path: circle(150% at 95% 5%);
+  }
+}

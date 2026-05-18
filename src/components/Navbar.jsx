@@ -33,14 +33,25 @@ const Navbar = () => {
   }, []);
 
   const toggleTheme = () => {
-    if (isDarkMode) {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-      setIsDarkMode(false);
+    const applyThemeChange = () => {
+      if (isDarkMode) {
+        document.documentElement.classList.remove('dark');
+        localStorage.setItem('theme', 'light');
+        setIsDarkMode(false);
+      } else {
+        document.documentElement.classList.add('dark');
+        localStorage.setItem('theme', 'dark');
+        setIsDarkMode(true);
+      }
+    };
+
+    // Modern browsers support this for cool native animations
+    if (!document.startViewTransition) {
+      applyThemeChange();
     } else {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-      setIsDarkMode(true);
+      document.startViewTransition(() => {
+        applyThemeChange();
+      });
     }
   };
 
