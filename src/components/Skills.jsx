@@ -13,7 +13,7 @@ const Skills = () => {
     active === 'All' ? skills : skills.filter((s) => s.category === active);
 
   return (
-    <section id="skills" className="section-padding bg-bg-primary relative">
+    <section id="skills" className="section-padding bg-bg-primary relative overflow-hidden">
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-64 bg-glow/6 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

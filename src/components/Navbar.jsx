@@ -181,7 +181,7 @@ const Navbar = () => {
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            className="md:hidden bg-bg-secondary/95 backdrop-blur-xl border-b border-border-color"
+            className="md:hidden bg-bg-secondary/95 backdrop-blur-xl border-b border-border-color absolute top-full left-0 right-0 w-full overflow-hidden shadow-xl"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
