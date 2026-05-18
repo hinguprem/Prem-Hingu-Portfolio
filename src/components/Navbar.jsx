@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FiMenu, FiX, FiSun, FiMoon } from 'react-icons/fi';
 import { navLinks, personalInfo } from '../constants/data';
 
-// Custom smooth scroll function — much smoother than react-scroll defaults
+// Custom smooth scroll function (fallback for programmatic scrolling like Hero CTA)
 const smoothScrollTo = (sectionId, offset = -76) => {
   const el = document.getElementById(sectionId);
   if (!el) return;
@@ -75,9 +75,8 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const handleNavClick = (to) => {
+  const handleNavClick = () => {
     setMenuOpen(false);
-    smoothScrollTo(to);
   };
 
   return (
@@ -118,10 +117,11 @@ const Navbar = () => {
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-1">
             {navLinks.map((link) => (
-              <button
+              <a
                 key={link.to}
                 id={`nav-${link.to}`}
-                onClick={() => handleNavClick(link.to)}
+                href={`#${link.to}`}
+                onClick={() => setMenuOpen(false)}
                 className={`relative cursor-pointer px-4 py-2 text-sm font-medium transition-colors duration-200 group focus:outline-none ${
                   activeSection === link.to ? 'text-accent' : 'text-text-secondary hover:text-accent'
                 }`}
@@ -133,7 +133,7 @@ const Navbar = () => {
                     activeSection === link.to ? 'w-full' : 'w-0 group-hover:w-full'
                   }`}
                 />
-              </button>
+              </a>
             ))}
 
             <button
@@ -189,17 +189,18 @@ const Navbar = () => {
           >
             <div className="px-4 py-4 flex flex-col gap-1">
               {navLinks.map((link) => (
-                <button
+                <a
                   key={link.to}
-                  onClick={() => handleNavClick(link.to)}
-                  className={`text-left cursor-pointer px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200 focus:outline-none ${
+                  href={`#${link.to}`}
+                  onClick={() => setMenuOpen(false)}
+                  className={`block w-full text-left cursor-pointer px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200 focus:outline-none ${
                     activeSection === link.to
                       ? 'text-accent bg-accent/5 border border-accent/20'
                       : 'text-text-secondary hover:text-accent hover:bg-accent/5'
                   }`}
                 >
                   {link.label}
-                </button>
+                </a>
               ))}
               <a
                 href={personalInfo.resumeLink}
