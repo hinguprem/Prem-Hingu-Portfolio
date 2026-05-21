@@ -1,5 +1,5 @@
 // ─── Portfolio Data — Prem Hingu (from Resume) ───
-import premPhoto from '../assets/prem_photo.jpeg';
+import premPhoto from '../assets/prem_photo.webp';
 
 export const personalInfo = {
   name: "Prem Hingu",
@@ -75,7 +75,7 @@ export const projects = [
     featured: true,
     category: "Full Stack",
     gradient: "from-blue-900/50 to-indigo-900/50",
-    image: "/project-borrowbuddy.png",
+    image: "/project-borrowbuddy.webp",
   },
   {
     id: 2,
@@ -88,7 +88,7 @@ export const projects = [
     featured: false,
     category: "Full Stack",
     gradient: "from-green-900/50 to-emerald-900/50",
-    image: "/project-whatsapp.png",
+    image: "/project-whatsapp.webp",
   },
   {
     id: 3,
@@ -101,7 +101,7 @@ export const projects = [
     featured: false,
     category: "Frontend",
     gradient: "from-amber-900/50 to-orange-900/50",
-    image: "/project-tiptop.png",
+    image: "/project-tiptop.webp",
   },
 ];
 
