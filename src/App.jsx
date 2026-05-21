@@ -1,18 +1,19 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, lazy, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Experience from './components/Experience';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+
+const About = lazy(() => import('./components/About'));
+const Skills = lazy(() => import('./components/Skills'));
+const Projects = lazy(() => import('./components/Projects'));
+const Experience = lazy(() => import('./components/Experience'));
+const Contact = lazy(() => import('./components/Contact'));
+const Footer = lazy(() => import('./components/Footer'));
 
 /* ─── Loading Screen ─── */
 const LoadingScreen = ({ onDone }) => {
   useEffect(() => {
-    const t = setTimeout(onDone, 2200);
+    const t = setTimeout(onDone, 800);
     return () => clearTimeout(t);
   }, [onDone]);
 
@@ -85,13 +86,17 @@ const App = () => {
           <Navbar />
           <main>
             <Hero />
-            <About />
-            <Skills />
-            <Projects />
-            <Experience />
-            <Contact />
+            <Suspense fallback={null}>
+              <About />
+              <Skills />
+              <Projects />
+              <Experience />
+              <Contact />
+            </Suspense>
           </main>
-          <Footer />
+          <Suspense fallback={null}>
+            <Footer />
+          </Suspense>
         </motion.div>
       )}
     </>

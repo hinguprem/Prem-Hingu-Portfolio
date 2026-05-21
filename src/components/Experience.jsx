@@ -38,7 +38,7 @@ const Experience = () => {
                 >
                   <span className="text-2xl">{item.icon}</span>
                   <div>
-                    <h4 className="font-heading font-semibold text-text-primary text-sm">{item.title}</h4>
+                    <h3 className="font-heading font-semibold text-text-primary text-sm">{item.title}</h3>
                     <p className="text-text-secondary text-xs mt-0.5 leading-relaxed">{item.desc}</p>
                   </div>
                 </div>
