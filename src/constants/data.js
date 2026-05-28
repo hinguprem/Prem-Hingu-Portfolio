@@ -23,7 +23,7 @@ export const personalInfo = {
   instagram: "https://instagram.com/hingu_prem_007",
   github: "https://github.com/hinguprem",
   linkedin: "https://linkedin.com/in/prem-hingu",
-  resumeLink: "https://drive.google.com/file/d/1fGX8LFVsr0ArGB9JlOe5B2cnxuiplhUj/view?usp=drive_link", // Navbar "Resume ↗" — opens Google Drive in new tab
+  resumeLink: "https://drive.google.com/file/d/1kTWj3CZ_vtdzIEjpLyIAAKFuAPGGntQl/view?usp=drive_link", // Navbar "Resume ↗" — opens Google Drive in new tab
   resumeFile: "/PremHingu_Resume.pdf", // Download Resume/CV buttons — downloads the PDF
   gmailLink: "https://mail.google.com/mail/?view=cm&to=hinguprem007@gmail.com", // Opens Gmail compose
   availableForWork: true,
