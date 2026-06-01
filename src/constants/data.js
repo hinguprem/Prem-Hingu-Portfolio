@@ -165,8 +165,8 @@ export const education = [
   {
     degree: "Bachelor of Engineering — Computer Engineering",
     institution: "SAL Institute of Technology & Engineering Research",
-    duration: "2023 – 2026 (Expected)",
-    cgpa: "7.39 / 10 (Sem 7 of 8)",
+    duration: "2023 – 2026",
+    cgpa: "7.77 / 10 ",
   },
   {
     degree: "Diploma — Information Technology",
